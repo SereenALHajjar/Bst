@@ -96,7 +96,6 @@ class Bst
     }
     void display(string type)
     {
-        pr(root) ;
         if(type == "preorder")
             preorder(root) ;
         if(type == "postorder")
@@ -104,13 +103,7 @@ class Bst
         if(type == "inorder")
             inorder(root) ;
     }
-    void pr(node * current)
-    {
-        cout<<current->data<<endl ;
-        cout<<(current->left)->data<<endl ;
-        cout<<(current->right)->data<<endl ;
-        return ;
-    }
+    
 } ;
 
 
