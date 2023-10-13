@@ -11,11 +11,12 @@ class Bst
 {
     private : node * root ; 
     public : 
+    int x ;
     Bst()
     {
         root = NULL ;
     }
-    void insert(int value)
+    node * insert(int value)
     {
         if(root == NULL)
         {
@@ -23,22 +24,36 @@ class Bst
             root->data = value ;
             root->left = NULL ;
             root->right = NULL ;
+            return root ;
         }
-        else insert(root , value) ;
+        else return insert(root , value) ;
     }
     node * insert(node * current , int value)
     {
-        if(current == NULL)
-        {   
-            node * newNode = new node ;
-            newNode->left = newNode->right = NULL ;
-            newNode->data = value ;
-            return newNode ;
+        if(value < current->data)
+        {
+            if(current->left != NULL)
+                insert(current->left , value) ;
+            else 
+            {
+                node * newNode = new node ;
+                newNode->left = newNode->right = NULL ;
+                newNode->data = value ;
+                current->left = newNode ;
+            }
         }
         if(value > current->data)
-            current->right = insert(current->right , value) ;
-        else
-            current->left = insert(current->left , value) ;
+        {
+            if(current->right != NULL)
+                insert(current->right , value) ;
+            else 
+            {
+                node * newNode = new node ;
+                newNode->left = newNode->right = NULL ;
+                newNode->data = value ;
+                current->right = newNode ;
+            }
+        }
     }
     node * find(node * current , int value)
     {
@@ -79,6 +94,23 @@ class Bst
         preorder(current->left) ;
         preorder(current->right) ;
     }
+    void display(string type)
+    {
+        pr(root) ;
+        if(type == "preorder")
+            preorder(root) ;
+        if(type == "postorder")
+            postorder(root) ;
+        if(type == "inorder")
+            inorder(root) ;
+    }
+    void pr(node * current)
+    {
+        cout<<current->data<<endl ;
+        cout<<(current->left)->data<<endl ;
+        cout<<(current->right)->data<<endl ;
+        return ;
+    }
 } ;
 
 
@@ -86,10 +118,21 @@ int main()
 {
     Bst test ;
     test.insert(10) ;
-    test.insert(50) ;
-    test.insert(5) ;
-    node * nn = test.find(4) ;
-    cout<<(nn->left)<<endl ;
+    test.insert(2) ;
+    test.insert(1) ;
+    test.insert(4) ;
+    test.insert(13) ;
+    test.insert(20) ;
+    // cout<<(b->right)->data<<endl ;
+    // cout<<test.x<<endl ;
+    // return 0 ;
+    test.display("inorder") ;
+    cout<<endl ;
+    test.display("preorder") ;
+    cout<<endl ;
+    test.display("postorder") ;
+    // node * nn = test.find(4) ;
+    // cout<<(nn->left)<<endl ;
     // test.pr() ;
     // cout<<tedata ;
 }
