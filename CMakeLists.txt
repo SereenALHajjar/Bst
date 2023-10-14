@@ -6,6 +6,8 @@ project(Bst
     LANGUAGES CXX
 )
 
+include(cmake/CPM.cmake)
+
 
 add_library(bst src/Bst.cpp)
 
@@ -15,4 +17,6 @@ add_executable(bst_run main.cpp)
 
 target_link_libraries(bst_run PRIVATE bst)
 
+
+add_subdirectory(tests)
 
