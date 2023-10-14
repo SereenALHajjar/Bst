@@ -3,7 +3,7 @@
 
 #include "Bst.hpp"
 
-TEST_CASE("wew") {
+TEST_CASE("Basic") {
   Bst bst;
   bst.insert(10);
   bst.insert(10);
@@ -22,4 +22,9 @@ TEST_CASE("wew") {
   CHECK(bst.find(100) == NULL);
   CHECK(bst.find(0) == NULL);
   CHECK(bst.find(-1) == NULL);
+}
+
+TEST_CASE("Empty")
+{
+ Bst bst;
 }
