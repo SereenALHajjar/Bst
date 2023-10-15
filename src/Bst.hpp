@@ -1,19 +1,24 @@
 #pragma once
 #include <string>
 #include <vector>
+
+
 struct node {
   node *left;
   node *right;
   int data;
 };
 
+enum class Order {
+  PREORDER,
+  INORDER,
+  POSTORDER
+};
 class Bst {
 
 public:
-  Bst()
-  {
-    root = NULL;
-  }
+  Bst();
+  ~Bst();
 
   void insert(int value);
 
@@ -23,19 +28,24 @@ public:
 
   node * remove(node * current , int value) ;
 
-  node *find(node *current, int value);
 
-  node *find(int value);
+  std::vector<int> traverse(Order order) const;
+  void display(Order order) const;
 
-  void inorder(node *current , std::vector<int> & );
-
-  void postorder(node *current , std::vector<int> &);
-
-  void preorder(node *current, std::vector<int>& );
-
-  void display(std::string type);
-
+  int size() const;
+  node *find(int value) const;
+  void clear();
 private:
+  int size(node*) const;
+  
+  node *find(node *current, int value) const;
+
+  void inorder(node *current , std::vector<int> & ) const;
+
+  void postorder(node *current , std::vector<int> &) const;
+
+  void preorder(node *current, std::vector<int>& ) const;
+  void clear(node *current);
   node *root;
 };
 
