@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.15)
 
-project(Bst
+project(Bstz
     VERSION 1.0.0
     DESCRIPTION "Binary Search Tree"
     LANGUAGES CXX
