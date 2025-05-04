@@ -6,6 +6,8 @@ project(Bstz
     LANGUAGES CXX
 )
 
+set (CMAKE_CXX_STANDARD 17)
+
 include(cmake/CPM.cmake)
 
 

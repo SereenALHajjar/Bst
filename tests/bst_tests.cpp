@@ -16,9 +16,9 @@ TEST_CASE("Basic")
   CHECK(bst.find(4)->data == 4);
   CHECK(bst.find(13)->data == 13);
   CHECK(bst.find(20)->data == 20);
-  CHECK(bst.find(100) == NULL);
-  CHECK(bst.find(0) == NULL);
-  CHECK(bst.find(-1) == NULL);
+  CHECK(bst.find(100) == nullptr);
+  CHECK(bst.find(0) == nullptr);
+  CHECK(bst.find(-1) == nullptr);
   REQUIRE(bst.size() == 6);
 }
 
@@ -32,7 +32,7 @@ TEST_CASE("Remove")
   REQUIRE(bst.size() == 6);
   CHECK(bst.find(10)->data == 10);
   bst.remove(10);
-  CHECK(bst.find(10) == NULL);
+  CHECK(bst.find(10) == nullptr);
   REQUIRE(bst.size() == 5);
 
   bst.remove(10);
@@ -45,8 +45,8 @@ TEST_CASE("Remove")
 TEST_CASE("Empty tree")
 {
   Bst bst;
-  CHECK(bst.find(0) == NULL);
-  CHECK(bst.find(1) == NULL);
+  CHECK(bst.find(0) == nullptr);
+  CHECK(bst.find(1) == nullptr);
   CHECK(bst.size() == 0);
   bst.remove(0);
   CHECK(bst.size() == 0);
@@ -82,14 +82,14 @@ TEST_CASE("Clear")
   }
   bst.clear();
   CHECK(bst.size() == 0);
-  CHECK(bst.find(10) == NULL);
-  CHECK(bst.find(2) == NULL);
-  CHECK(bst.find(1) == NULL);
-  CHECK(bst.find(4) == NULL);
-  CHECK(bst.find(13) == NULL);
-  CHECK(bst.find(20) == NULL);
-  CHECK(bst.find(100) == NULL);
-  CHECK(bst.find(0) == NULL);
-  CHECK(bst.find(-1) == NULL);
+  CHECK(bst.find(10) == nullptr);
+  CHECK(bst.find(2) == nullptr);
+  CHECK(bst.find(1) == nullptr);
+  CHECK(bst.find(4) == nullptr);
+  CHECK(bst.find(13) == nullptr);
+  CHECK(bst.find(20) == nullptr);
+  CHECK(bst.find(100) == nullptr);
+  CHECK(bst.find(0) == nullptr);
+  CHECK(bst.find(-1) == nullptr);
   REQUIRE(bst.size() == 0);
 }

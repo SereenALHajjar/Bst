@@ -1,6 +1,6 @@
 
 
-CPMAddPackage("gh:doctest/doctest#v2.4.11")
+CPMAddPackage("gh:doctest/doctest#v2.4.12")
 
 
 add_executable(bst_tests doctest_main.cpp bst_tests.cpp)
